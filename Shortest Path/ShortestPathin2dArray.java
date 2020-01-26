@@ -2,6 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ShortestPathin2dArray {
+    // Use array
     public int shortestPathWithoutNode(char[][] matrix){
         Queue<int[]> q = new LinkedList<>();
         for(int i = 0 ; i < matrix.length; i++) {
@@ -34,6 +35,58 @@ public class ShortestPathin2dArray {
         }
         return -1;
     }
+    
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Nodes Version:
+    */
+    public int shortestPath(char[][] matrix) {
+        int sRow = 0, sCol = 0;
+        for(int i = 0 ; i < matrix.length ; i++) {
+            for(int j = 0 ; j < matrix[0].length ; j++) {
+                if(matrix[i][j] == 'S') {
+                    sRow = i;
+                    sCol = j;
+                    break;
+                }
+            }
+        }
+
+        Node source = new Node(sRow, sCol, 0);
+        Queue<Node> q = new LinkedList<>();
+        q.offer(source);
+        int[][] dirs = {{1,0}, {-1,0}, {0,1}, {0,-1}};
+        while(!q.isEmpty()) {
+            for(int i = 0 ; i < q.size() ; i++) {
+                Node node = q.poll();
+                if(matrix[node.row][node.col] == 'D') {
+                    return node.distanceFromSource;
+                } else {
+                    matrix[node.row][node.col] = '0';
+                    for(int[]dir : dirs) {
+                        int r = node.row + dir[1];
+                        int c = node.col + dir[0];
+                        if(r >= 0 && r < matrix.length && c >= 0 && c < matrix[0].length && matrix[r][c] != '0' )
+                            q.offer(new Node(r , c, node.distanceFromSource + 1));
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    public class Node {
+        int row;
+        int col;
+        int distanceFromSource;
+
+        Node(int r, int c, int dis) {
+            this.row = r;
+            this.col = c;
+            this.distanceFromSource = dis;
+        }
+    }
+    
     public static void main(String[] args) {
         ShortestPathin2dArray test = new ShortestPathin2dArray();
         char[][] test1 = {
