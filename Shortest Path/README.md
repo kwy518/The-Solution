@@ -53,7 +53,7 @@ In the above matrix, the minimum distances from S to D is 5.
       - When we meet `D`, stop the searching and return the value of the distance.
       
       ```java
-      int[][] dirs = {{1,0}, {-1,0}, {0,1}, {0,-1}};
+        int[][] dirs = {{1,0}, {-1,0}, {0,1}, {0,-1}};
         while(!q.isEmpty()) {
             for(int i = 0 ; i < q.size() ; i++) {
                 Node node = q.poll();
@@ -69,7 +69,7 @@ In the above matrix, the minimum distances from S to D is 5.
                     }
                 }
             }
-       }
-       ```
+        }
+      ```
     
   - __Solution 2__
