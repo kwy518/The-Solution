@@ -37,7 +37,7 @@ In the above matrix, the minimum distances from S to D is 5.
         }
       }
       ```
-      - Traverse the whole matrix, finding the position if the source.
+      - Traverse the whole matrix, finding the position of the source.
       
       ```Java
       for(int i = 0 ; i < matrix.length; i++) {
