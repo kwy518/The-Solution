@@ -40,6 +40,19 @@ public class ShortestPathin2dArray {
     ----------------------------------------------------------------------------------------------------------
     Nodes Version:
     */
+    
+    public class Node {
+        int row;
+        int col;
+        int distanceFromSource;
+
+        Node(int r, int c, int dis) {
+            this.row = r;
+            this.col = c;
+            this.distanceFromSource = dis;
+        }
+    }
+    
     public int shortestPath(char[][] matrix) {
         int sRow = 0, sCol = 0;
         for(int i = 0 ; i < matrix.length ; i++) {
@@ -75,17 +88,6 @@ public class ShortestPathin2dArray {
         return -1;
     }
 
-    public class Node {
-        int row;
-        int col;
-        int distanceFromSource;
-
-        Node(int r, int c, int dis) {
-            this.row = r;
-            this.col = c;
-            this.distanceFromSource = dis;
-        }
-    }
     
     public static void main(String[] args) {
         ShortestPathin2dArray test = new ShortestPathin2dArray();
