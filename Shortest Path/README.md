@@ -16,4 +16,4 @@ For example:
 |1|0|D|1|
 
 
-In the above matrix, it takes 5 distances from S to D.
+In the above matrix, the minimum distances from S to D is 5.
